@@ -9,6 +9,6 @@ angular.module('myInspiration.quotes', ['ngRoute','firebase'])
   });
 }])
 
-.controller('QuotesCtrl', ['$scope', '$firebaseArrayfunction($scope, $firebaseArray) {
-
+.controller('QuotesCtrl', ['$scope', '$firebaseArray', function($scope, $firebaseArray) {
+console.log($scope);
 }]);

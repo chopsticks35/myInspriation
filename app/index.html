@@ -13,30 +13,29 @@
   <link rel="stylesheet" href="app.css">
 
 </head>
-<body>
+<body ng-controller="QuotesCtrl">
     <div class="container">
         <div class="row">
             <div class="large-12 columns">
             <h1>Feel Inspired!</h1>
-                <h3>A yoga quote salon</h3>
+                <h5>A yoga quote salon</h5>
+                <hr>
                 <hr>
             </div>
         </div>
-        <div ng-view""></div>
+        <div class ="view-box" ng-view></div>
     </div>
 
   <!--[if lt IE 7]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
   <![endif]-->
 
-  <div ng-view></div>
-
 
 
   <!-- In production use:
   <script src="//ajax.googleapis.com/ajax/libs/angularjs/x.x.x/angular.min.js"></script>
   -->
-  <script src="bower_components/jquery/dist/jquer.js"></script>
+  <script src="bower_components/jquery/dist/jquery.js"></script>
   <script src="bower_components/angular/angular.js"></script>
   <script src="bower_components/angular-route/angular-route.js"></script>
   <script src="bower_components/firebase/firebase.js"></script>
