@@ -1,31 +1,66 @@
-<div class="row">
-<div class ="large-10 columns">
+<div class="row" ng-controller="QuotesCtrl">
+ <div class ="large-10 columns">
+     <div data-alert ng-show="msg" class="alert-box">{{msg}}</div>
+    <form ng-submit="addFormSubmit" ng-show="addFormShow">
+        <h3>Add Quote</h3>
+        <div class="row">
+            <div class="large-6 columns">
+                <label>Author:
+                    <input type="text" ng model="author" placeholder="Author name" required/>
+                </label>
+                <div class=>
+                <label>Text:
+                    <input type="text" ng model="text" placeholder="Enter text here" required/>
+                </label>
+            </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="large-6 columns">
+                <label>Subject:
+                    <input type="text" ng model="subject" placeholder="Subject" required/>
+                </label>
+                <div class=>
+                <label>Rating:
+                    <input type="num" ng model="rating" placeholder="Rating out of Five Stars" required/>
+                </label>
+            </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="large-6 columns">
+                <input type="submit" value="Add Quote" class="button"/>
+            </div>
+        </div>
+    </form>
+
+
     <h2>Favorite Yoga Quotes</h2>
     <table>
-    <thread>
+    <thead>
         <tr>
-            <th width="25%">Author</th>
-            <th width="50%">Text</th>
+            <th width="200px">Author</th>
+            <th width="200px">Text</th>
             <th width="15%">Subject</th>
             <th width="10%">Rating</th>
         </tr>
-    </thread>
+        </thead>
     <tbody>
-        <tr>
-            <td><a href="#">Sri K Patthabi Jois</a></td>
-            <td>“Do your practice and all is coming.”</td>
-            <td>practice</td>
-            <td>0</td>
-            <td>
-                <a class="button tiny">Rate It</a>
-                <a class="button tiny alert">Delete It</a>
+        <tr ng-repeat="quote in quotes">
+            <td><a href="#">{{quote.author}}</a></td>
+            <td>{{quote.text}}</td>
+            <td>{{quote.subject}}</td>
+            <td>{{quote.rating}}</td>
+            <td><a class="button tiny" ng-click="showRateForm(quote)">Rate It</a>
+                <a class="button tiny alert" ng-click="deleteQuote(quote)">Delete It</a>
             </td>
         </tr>
     </tbody>
     </table>
 </div>
 <div class="small-12 large-2 columns">
-    <a class="button large">Add</a>
-    <a class="button large">Sort</a>
+    <a class="button large" ng-click="showAddForm()" ng-hide="addFormShow">Add</a>
+    <a class="button large" ng-click="hide()" ng-show="addFormShow">Done</a>
+    <a class="button large" ng-click="showSortForm()" ng-hide="addFormShow">Sort</a>
 </div>
 </div>
